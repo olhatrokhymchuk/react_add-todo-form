@@ -9,18 +9,20 @@ import { AddTodoForm } from './components/AddTodoForm/AddTodoForm';
 import { TodoList } from './components/TodoList';
 
 export const App: React.FC = () => {
-  const initialTodos: Todo[] = todosFromServer.map((t: ServerTodo) => {
-    const user = usersFromServer.find(u => u.id === t.userId)!;
+  const initialTodos: Todo[] = todosFromServer.map((todo: ServerTodo) => {
+    const user = usersFromServer.find(
+      currentUser => currentUser.id === todo.userId,
+    )!;
 
-    return { ...t, user };
+    return { ...todo, user };
   });
 
   const [todos, setTodos] = useState<Todo[]>(initialTodos);
   const [users] = useState<User[]>(usersFromServer);
 
   const addTodo = (title: string, userId: number) => {
-    const maxId = todos.length ? Math.max(...todos.map(t => t.id)) : 0;
-    const user = users.find(u => u.id === userId);
+    const maxId = todos.length ? Math.max(...todos.map(todo => todo.id)) : 0;
+    const user = users.find(currentUser => currentUser.id === userId);
 
     if (!user) {
       return;
