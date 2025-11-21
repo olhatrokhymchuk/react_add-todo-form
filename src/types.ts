@@ -12,7 +12,12 @@ export interface Todo {
   completed: boolean;
   user: User;
 }
-
+export interface ServerTodo {
+  id: number;
+  title: string;
+  userId: number;
+  completed: boolean;
+}
 export interface AddTodoFormProps {
   users: User[];
   onAdd: (title: string, userId: number) => void;
@@ -29,4 +34,3 @@ export interface TodoInfoProps {
 export interface UserInfoProps {
   user: User;
 }
-
