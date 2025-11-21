@@ -1,11 +1,5 @@
 import React, { useState } from 'react';
-import { TodoList } from '../TodoList';
-import { User } from '../../App';
-
-interface AddTodoFormProps {
-  users: User[];
-  onAdd: (title: string, userId: number) => void;
-}
+import { AddTodoFormProps } from '../../types';
 
 
 export const AddTodoForm: React.FC<AddTodoFormProps> = ({ users, onAdd }) => {

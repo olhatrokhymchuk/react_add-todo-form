@@ -1,9 +1,6 @@
 import React from 'react';
-import { Todo } from '../../App';
-
-interface TodoInfoProps {
-  todo: Todo;
-}
+import { TodoInfoProps } from '../../types';
+import { UserInfo } from '../UserInfo/UserInfo';
 
 export const TodoInfo: React.FC<TodoInfoProps> = ({ todo }) => {
   return (
@@ -11,10 +8,8 @@ export const TodoInfo: React.FC<TodoInfoProps> = ({ todo }) => {
       data-id={todo.id}
       className={`TodoInfo ${todo.completed ? 'TodoInfo--completed' : ''}`}
     >
-    <h2 className="TodoInfo__title">{todo.title}</h2>
-    <a className="UserInfo" href={`mailto:${todo.user.email}`}>
-      {todo.user.name}
-    </a>
-  </article>
-  )
+      <h2 className="TodoInfo__title">{todo.title}</h2>
+      <UserInfo user={todo.user} />
+    </article>
+  );
 };

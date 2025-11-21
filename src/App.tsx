@@ -2,21 +2,9 @@ import React, { useState } from 'react';
 import './App.scss';
 import usersFromServer from './api/users';
 import todosFromServer from './api/todos';
-import { AddTodoForm } from './components/AddTodoForm/AddTodoForm';
-import { TodoList } from './components/TodoList';
-export interface User {
-  id: number;
-  name: string;
-  username: string;
-  email: string;
-}
-export interface Todo {
-  id: number;
-  title: string;
-  userId: number;
-  completed: boolean;
-  user: User;
-}
+import { AddTodoForm, Todo } from './types';
+import { TodoList } from './types';
+import { Todo } from './types';
 
 export const App: React.FC = () => {
   const [todos, setTodos] = useState<Todo[]>(todosFromServer);

@@ -1,10 +1,6 @@
 import React from 'react';
-import { TodoInfo } from '../TodoInfo';
-import { Todo } from '../../App';
-
-interface TodoListProps {
-  todos: Todo[];
-}
+import { TodoInfo } from '../TodoInfo/TodoInfo';
+import { TodoListProps } from '../../types';
 
 export const TodoList: React.FC<TodoListProps> = ({ todos }) => {
   return (
